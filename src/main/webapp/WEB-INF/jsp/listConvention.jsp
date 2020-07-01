@@ -9,17 +9,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
-      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link href="/css/bootstrap-datepicker.css" rel="stylesheet" />
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/bootstrap-datepicker.js" type="text/javascript"></script>
 
-      <!-- Javascript -->
-      <script>
-         $(function() {
-            $( ".datepicker-1" ).datepicker();
-         });
-      </script>
 </head>
 <body>
 <div class="container">
@@ -33,9 +26,9 @@
     <option value="industrielle internationale">industrielle internationale</option>
     </select>
     <label for="objet">objet</label><input name="objet" id="objet">
-    <label for="editiondate">Date Edition</label><input name="editiondate" id="editiondate" class="datepicker-1"><br>
-    <label for="entreedate">Date Entrée</label><input name="entreedate" id="entreedate" class="datepicker-1">
-    <label for="expireedate">Date Expirée</label><input name="expireedate" id="expireedate" class="datepicker-1">
+    <label for="editiondate">Date Edition</label><input name="editiondate" id="editiondate" class="datepicker"><br>
+    <label for="entreedate">Date Entrée</label><input name="entreedate" id="entreedate" class="datepicker">
+    <label for="expireedate">Date Expirée</label><input name="expireedate" id="expireedate" class="datepicker">
     <input type="submit" value="Search" class="btn btn-info"></center>
     </form>
     <table class="table">
@@ -84,5 +77,11 @@
     </table>
     <a href="/Conventions/addConvention" class="btn btn-success">add Convention</a>
    </div>
+   <script type="text/javascript">
+	 $('.datepicker').datepicker({
+    	 weekStart:1,
+    	 color: 'red'
+	 });
+	</script>
 </body>
 </html>
