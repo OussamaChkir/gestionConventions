@@ -21,7 +21,7 @@
  </div>
  <div class="form-group">
   <label for="Password">Password</label>
-  <form:input path="password" cssClass="form-control" id="Password" />
+  <form:password path="password" cssClass="form-control" id="Password" />
  </div>
  <div class="form-group">
   <input type="submit" value="Login" class="btn btn-primary" />
