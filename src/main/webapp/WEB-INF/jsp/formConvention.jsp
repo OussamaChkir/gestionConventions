@@ -11,12 +11,22 @@
 <link href="/css/bootstrap-datepicker.css" rel="stylesheet" />
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<style type="text/css">
+.button1{
+border-radius: 12px;
+}
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
 
+</style>
      
 </head>
 <body>
+<div class="container"><a href="/auth" class="btn btn-dark button1">Déconnexion</a></div>
 <div class="container">
-<h3 class="text-center">Form Convention</h3>
+<h3 class="text-center">Convention</h3>
 
  <form:form method="post" action="editConvention" modelAttribute="conventionEdit">
     <form:hidden path="id"/>
@@ -28,60 +38,68 @@
    <form:option value="industrielle nationale">industrielle nationale</form:option>
    <form:option value="industrielle internationale">industrielle internationale</form:option>
    </form:select>
+   <label>${errortype}</label>
  </div>
  <div class="form-group">
-  <label for="objet">objet</label>
+  <label for="objet">Objet</label>
   <form:input path="objet" cssClass="form-control" />
+  <label>${errorobjet}</label>
   </div>
   <div class="form-group" >
- <label for="editiondate">date Edition</label>
-  <form:input path="editiondate" cssClass="form-control datepicker"  />
+ <label for="editiondate">Date Edition</label>
+  <form:input path="editiondate" cssClass="form-control datepicker" />
+  <label>${errordatedit}</label>
   </div>
   <div class="form-group">
-  <label for="participant1">participant 1</label>
+  <label for="participant1">Participant 1</label>
   <form:input path="participant1" cssClass="form-control" />
+  <label>${errorpart1}</label>
   </div>
   <div class="form-group">
-  <label for="signdate1">sign date 1</label>
+  <label for="signdate1">Date Signature 1</label>
   <form:input path="signdate1" cssClass="form-control datepicker" />
+  <label>${errorsign1}</label>
   </div>
   <div class="form-group">
-  <label for="participant2">participant 2</label>
+  <label for="participant2">Participant 2</label>
   <form:input path="participant2" cssClass="form-control" />
   </div>
   <div class="form-group">
-  <label for="signdate2">sign date 2</label>
+  <label for="signdate2">Date Signature 2</label>
   <form:input path="signdate2" cssClass="form-control datepicker" />
   </div>
   <div class="form-group">
-  <label for="participant3">participant 3</label>
+  <label for="participant3">Participant 3</label>
   <form:input path="participant3" cssClass="form-control" />
   </div>
   <div class="form-group">
-  <label for="signdate3">sign date 3</label>
+  <label for="signdate3">Date Signature 3</label>
   <form:input path="signdate3" cssClass="form-control datepicker" />
   </div>
   <div class="form-group">
-  <label for="participant4">participant 4</label>
+  <label for="participant4">Participant 4</label>
   <form:input path="participant4" cssClass="form-control" />
   </div>
   <div class="form-group">
-  <label for="signdate4">sign date 4</label>
+  <label for="signdate4">Date Signature 4</label>
   <form:input path="signdate4" cssClass="form-control datepicker" />
   </div>
   <div class="form-group">
-  <label for="entreedate">entree date </label>
+  <label for="entreedate">Date Entrée </label>
   <form:input path="entreedate" cssClass="form-control datepicker" />
+
   </div>
   <div class="form-group">
-  <label for="expireedate">expiree date</label>
+  <label for="expireedate">Date Expirée</label>
   <form:input path="expireedate" cssClass="form-control datepicker"/>
+
  </div>
   
  <div class="form-group">
-  <input type="submit" value=Submit class="btn btn-primary" />
+  <input type="submit" value=Submit class="btn btn-success" />
+  <a href="/Conventions/list" class="btn btn-danger">Annuler</a>
   </div>
- 
+ <br> <br> <br> <br>
  </form:form>
  </div>
  <script type="text/javascript">

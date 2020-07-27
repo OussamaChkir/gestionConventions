@@ -16,18 +16,18 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
+            <h5 class="card-title text-center">Connexion</h5>
               <form:form method="post" action="check" modelAttribute="userauth" cssClass="form-signin">
               <div class="form-label-group">
                 <form:input path="login" cssClass="form-control" id="Login"/>
-                <label for="Login">Username</label>
+                <label for="Login">Login</label>
               </div>
               <div class="form-label-group">
                 <form:password path="password" cssClass="form-control" id="inputPassword" />
-                <label for="inputPassword">Password</label>
+                <label for="inputPassword">Mot de passe</label>
               </div>
               <label class="text-danger">${erreur}</label>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">se Connecter</button>
             </form:form>
           </div>
         </div>

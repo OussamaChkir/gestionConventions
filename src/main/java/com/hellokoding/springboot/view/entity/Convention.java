@@ -32,7 +32,7 @@ public class Convention {
 	private String participant1;
 	@Column(name = "participant2")
 	private String participant2;
-	@Column(name = "participant3")
+	@Column(name = "participant3") 
 	private String participant3;
 	@Column(name = "participant4")
 	private String participant4;

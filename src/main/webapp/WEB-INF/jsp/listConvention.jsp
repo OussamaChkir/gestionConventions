@@ -12,34 +12,45 @@
 <link href="/css/bootstrap-datepicker.css" rel="stylesheet" />
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<style type="text/css">
+.button1{
+border-radius: 12px;
+}
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+</style>
 
 </head>
 <body>
-<div class="container">
-    <h2 class="text-center">List Convention </h2>
+<div class="container"><a href="/auth" class="btn btn-dark button1">Déconnexion</a></div>
+<div class="">
+    <h2 class="text-center">Liste des conventions </h2>
     <form action="search" method="get">
-    <center><label for="type">Type</label>
+    <center><label for="type">Type&nbsp;</label>
     <select name="type" id="type">
-    <option value="" selected disabled hidden>Choose type here</option>
+    <option value="" selected disabled hidden>Choisir le type</option>
     <option value="universitaire">universitaire</option>
     <option value="industrielle nationale">industrielle nationale</option>
     <option value="industrielle internationale">industrielle internationale</option>
     </select>
-    <label for="objet">objet</label><input name="objet" id="objet">
-    <label for="editiondate">Date Edition</label><input name="editiondate" id="editiondate" class="datepicker"><br>
-    <label for="entreedate">Date Entrée</label><input name="entreedate" id="entreedate" class="datepicker">
-    <label for="expireedate">Date Expirée</label><input name="expireedate" id="expireedate" class="datepicker">
+    <label for="objet">Objet&nbsp;</label><input name="objet" id="objet">
+    <label for="editiondate">Date Edition&nbsp;</label><input name="editiondate" id="editiondate" class="datepicker"><br>
+    <label for="entreedate">Date Entrée&nbsp;</label><input name="entreedate" id="entreedate" class="datepicker">
+    <label for="expireedate">Date Expirée&nbsp;</label><input name="expireedate" id="expireedate" class="datepicker">
     <input type="submit" value="Search" class="btn btn-info"></center>
     </form>
-    <table class="table">
+    <table class="table table-bordered container">
      <thead class="thead-dark">
 			<tr>
 				<th scope="col">Type</th>
 				<th scope="col">Objet</th>
-				<th scope="col">Date edition</th>
-				<th scope="col">Date entree en vigueur</th>
-				<th scope="col">Date expiration</th>
-				<th scope="col">Action</th>
+				<th scope="col">Date Edition</th>
+				<th scope="col">Date Entrée</th>
+				<th scope="col">Date Expiration</th>
+				<th scope="col" style="text-align: center;">Action</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -58,24 +69,32 @@
 							<c:url var="viewLink" value="/Conventions/view">
 								<c:param name="conventionId" value="${tempConvention.id}" />
 							</c:url>
-    		<tr>
+    		<tr  class="table-light">
 				<td> ${tempConvention.type} </td>
 				<td> ${tempConvention.objet} </td>
 				<td> ${tempConvention.editiondate} </td>
 				<td> ${tempConvention.entreedate} </td>
 				<td> ${tempConvention.expireedate} </td>
 				<td>
-					<!-- display the update link --> <a href="${updateLink}" class="btn btn-primary">Update</a>
+				
+				<c:if test="${currentUser.type=='admin'}">
+					<!-- display the update link --> <a href="${updateLink}" class="btn btn-primary">Modifier</a>
 					<a href="${deleteLink}"
-					onclick="if (!(confirm('Are you sure you want to delete this Convention?'))) return false" class="btn btn-danger">Delete</a>
-					<a href="${viewLink}" class="btn btn-warning">view</a>
+					onclick="if (!(confirm('Voulez vous le supprimer?'))) return false" class="btn btn-danger">Supprimer</a>
+					</c:if>
+					
+					<a href="${viewLink}" class="btn btn-warning">Afficher</a>
 				</td>
 			</tr>
 				
 				</c:forEach>
 				</tbody>
     </table>
-    <a href="/Conventions/addConvention" class="btn btn-success">add Convention</a>
+    <c:if test="${currentUser.type=='admin'}">
+    <div class="container">
+    <a href="/Conventions/addConvention" class="btn btn-success">Ajouter Convention</a>
+    </div>
+    </c:if>
    </div>
    <script type="text/javascript">
 	 $('.datepicker').datepicker({
